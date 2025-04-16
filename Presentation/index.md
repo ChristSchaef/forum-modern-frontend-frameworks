@@ -8,14 +8,9 @@ hero:
   tagline:
 
 features:
-  - title: Reaktivität
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /Dokumentation/Reaktivität
+  - title: Reactivity
+    details: A quick reference for reactivity in vue, react and angular.
+    link: /Dokumentation/Reactivity/Intro
   - title: Forms
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /Dokumentation/Forms
   - title: Routing
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /Dokumentation/Routing
 ---
-

@@ -2,10 +2,10 @@ import { createApp } from "vue";
 import { routes } from "./router.ts";
 import "./style.css";
 import App from "./App.vue";
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createMemoryHistory, createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
-	history: createMemoryHistory(),
+	history: createWebHistory(),
 	routes: routes,
 });
 

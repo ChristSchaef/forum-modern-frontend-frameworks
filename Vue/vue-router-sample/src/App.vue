@@ -14,20 +14,6 @@ import { RouterView, RouterLink } from "vue-router";
 			>Home</router-link
 		>
 		<router-link
-			:to="{ name: 'Login' }"
-			class="button"
-			active-class="activeButton"
-			aria-current="page"
-			>Login</router-link
-		>
-		<router-link
-			:to="{ name: 'Register' }"
-			class="button"
-			active-class="activeButton"
-			aria-current="page"
-			>Register</router-link
-		>
-		<router-link
 			:to="{ name: 'Clubs' }"
 			class="button"
 			active-class="activeButton"

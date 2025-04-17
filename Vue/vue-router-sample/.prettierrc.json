@@ -3,8 +3,6 @@
 	"bracketSameLine": false,
 	"bracketSpacing": true,
 	"endOfLine": "crlf",
-	"jsonRecursiveSort": true,
-	"plugins": ["prettier-plugin-sort-json"],
 	"printWidth": 140,
 	"quoteProps": "preserve",
 	"semi": true,

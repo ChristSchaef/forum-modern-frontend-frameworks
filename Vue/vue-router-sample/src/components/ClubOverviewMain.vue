@@ -1,1 +1,3 @@
-<template>Club overview main</template>
+<template>
+	<div>Hello!</div>
+</template>

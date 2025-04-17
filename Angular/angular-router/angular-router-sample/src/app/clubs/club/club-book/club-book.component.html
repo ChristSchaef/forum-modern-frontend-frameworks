@@ -1,0 +1,16 @@
+<article class="book-card" *ngIf="book$ | async as book">
+  <header class="book-card__header">
+    <h2 class="book-card__title">{{ book.title }}</h2>
+    <h3 class="book-card__author">von {{ book.author }}</h3>
+  </header>
+
+  <section class="book-card__meta">
+    <p><strong>Erscheinungsjahr:</strong> {{ book.year }}</p>
+    <p *ngIf="book.id"><strong>ID:</strong> {{ book.id }}</p>
+  </section>
+
+  <section class="book-card__description" *ngIf="book.description">
+    <h4>Beschreibung</h4>
+    <p>{{ book.description }}</p>
+  </section>
+</article>

@@ -1,14 +1,11 @@
 <template>
-	<div class="clubs-container">
-		<div
-			v-if="clubs.length === 0"
-			class="no-clubs"
-		>
+	<div>
+		<div v-if="clubs.length === 0">
 			<p>No clubs available at the moment.</p>
 		</div>
 
 		<div v-else>
-			<ul class="clubs-list">
+			<ul>
 				<li
 					v-for="club in clubs"
 					:key="club.id"
@@ -21,7 +18,6 @@
 								clubId: club.id,
 							},
 						}"
-						class="club-link"
 					>
 						<h2>{{ club.name }}</h2>
 					</router-link>

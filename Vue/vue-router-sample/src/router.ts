@@ -17,20 +17,26 @@ export const routes = [
 		props: true,
 		children: [
 			{
-				path: "",
+				path: "/clubs/:clubId",
 				name: "ClubOverview",
 				component: () => import("@/components/ClubOverviewMain.vue"),
 			},
 			{
-				path: "/books",
+				path: "/clubs/:clubId/books",
 				name: "Books",
 				component: () => import("@/components/Books.vue"),
 			},
 			{
-				path: "books/:bookId",
-				name: "BookOverview",
+				path: "/clubs/:clubId/books/:bookId",
 				component: () => import("@/components/BookOverview.vue"),
-				props: true,
+				children: [
+					{
+						path: "/clubs/:clubId/books/:bookId",
+						name: "BookOverview",
+						component: () => import("@/components/BookOverviewMain.vue"),
+						props: true,
+					},
+				],
 			},
 		],
 	},

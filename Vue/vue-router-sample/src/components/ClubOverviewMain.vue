@@ -1,43 +1,45 @@
 <template>
-	<table v-if="club">
-		<tbody>
-			<tr>
-				<td class="property">ID</td>
-				<td>{{ club.id }}</td>
-			</tr>
-			<tr>
-				<td class="property">Name</td>
-				<td>{{ club.name }}</td>
-			</tr>
-		</tbody>
-	</table>
+	<div v-if="club">
+		<table>
+			<tbody>
+				<tr>
+					<td class="property">ID</td>
+					<td>{{ club.id }}</td>
+				</tr>
+				<tr>
+					<td class="property">Name</td>
+					<td>{{ club.name }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<button @click="goToBooks">Show books</button>
+		<RouterView></RouterView>
+	</div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { clubData as clubs } from "@/clubs";
-import { Club } from "@/types";
+import { useClub } from "../composables/useClub";
+import { parseClubId } from "../router/parser";
 
 const route = useRoute();
+const router = useRouter();
 
-const clubIdFromQuery = computed<string | undefined>(() => {
-	const clubId = route.params.clubId;
-	if (!clubId) {
-		return undefined;
+const clubId = computed(() => parseClubId(route)); // Parses the clubId from route.
+const { club } = useClub(clubId); // Fetches the club from the server.
+
+async function goToBooks() {
+	if (!club.value?.id) {
+		return;
 	}
-	return clubId.toString();
-});
-
-const club = ref<Club>();
-
-onMounted(() => {
-	// Fetch club from server
-	if (clubIdFromQuery.value) {
-		const foundClub = clubs.find((club) => club.id === clubIdFromQuery.value);
-		club.value = JSON.parse(JSON.stringify(foundClub));
-	}
-});
+	await router.push({
+		name: "Books",
+		params: {
+			clubId: club.value.id,
+		},
+	});
+}
 </script>
 
 <style scoped>

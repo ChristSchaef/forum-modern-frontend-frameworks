@@ -1,6 +1,6 @@
 import { Settings } from "../types";
 
-const FORUM_REACT_FORMS_SETTINGS = "forum.react.forms.settings" as const;
+const FORUM_REACT_FORMS_SETTINGS = "forum.forms.settings" as const;
 
 export class SettingsPersistence {
 	async getSettings(): Promise<Settings | undefined> {

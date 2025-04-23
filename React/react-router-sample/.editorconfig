@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+# apply to all files
+[*]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# ensure consistent line endings and trimming
+insert_final_newline = true
+trim_trailing_whitespace = true

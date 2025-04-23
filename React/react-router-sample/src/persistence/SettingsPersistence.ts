@@ -3,7 +3,7 @@ import { Settings } from "../types";
 const NAMESPACE_FORUM_FORMS_SETTINGS = "forum.forms.settings" as const;
 
 export class SettingsPersistence {
-	async getSettings(): Promise<Settings | undefined> {
+	static async getSettings(): Promise<Settings | undefined> {
 		const settingsString = localStorage.getItem(NAMESPACE_FORUM_FORMS_SETTINGS);
 		if (settingsString) {
 			return JSON.parse(settingsString!) as Settings;
@@ -12,12 +12,13 @@ export class SettingsPersistence {
 		}
 	}
 
-	async putSettings(settings: Settings): Promise<Settings> {
-		localStorage.setItem(NAMESPACE_FORUM_FORMS_SETTINGS, JSON.stringify(settings));
-		return settings;
+	static async putSettings(settings: Settings): Promise<Settings> {
+		const newSettings = JSON.stringify(settings);
+		localStorage.setItem(NAMESPACE_FORUM_FORMS_SETTINGS, newSettings);
+		return JSON.parse(newSettings) as Settings;
 	}
 
-	async resetSettings(): Promise<Settings> {
+	static async resetSettings(): Promise<Settings> {
 		const settingsDefaults: Settings = {
 			mainClub: "1",
 			preferredGenres: [],

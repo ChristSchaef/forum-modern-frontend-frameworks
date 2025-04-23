@@ -77,3 +77,8 @@ table {
 	font-weight: bold;
 	padding-right: 12px;
 }
+
+.my-2 {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}

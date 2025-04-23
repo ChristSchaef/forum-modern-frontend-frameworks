@@ -10,10 +10,10 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-	"resolveJsonModule": true
+	"resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

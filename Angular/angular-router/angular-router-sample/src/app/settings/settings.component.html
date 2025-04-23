@@ -1,1 +1,34 @@
-<p>settings works!</p>
+  <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="mainClub">Main Club:</label>
+      <input id="mainClub" formControlName="mainClub" />
+    </div>
+
+    <div formArrayName="preferredGenres">
+      <div *ngFor="let genre of preferredGenres.controls; let i = index">
+        <label for="genre{{i}}">Preferred Genre {{i + 1}}:</label>
+        <input [id]="'genre' + i" [formControlName]="i" />
+        <button type="button" (click)="removeGenre(i)">Remove</button>
+      </div>
+      <button type="button" (click)="addGenre()">Add Genre</button>
+    </div>
+
+    <div formGroupName="notifications">
+      <div>
+        <label for="email">Email:</label>
+        <input type="checkbox" formControlName="email" />
+      </div>
+
+      <div>
+        <label for="push">Push Notifications:</label>
+        <input type="checkbox" formControlName="push" />
+      </div>
+
+      <div>
+        <label for="newsletter">Newsletter:</label>
+        <input type="checkbox" formControlName="newsletter" />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="settingsForm.invalid">Submit</button>
+  </form>

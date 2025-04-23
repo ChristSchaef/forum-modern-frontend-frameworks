@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Book, Club } from '../types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClubsService {
 
-  readonly allClubs = [
+  readonly allClubs: Club[] = [
     {
       "id": 1,
       "name": "Berliner Literaturkreis",
@@ -148,17 +149,17 @@ export class ClubsService {
   constructor() { }
 
 
-  getAllClubs() {
+  getAllClubs(): Observable<Club[]> {
     return of(this.allClubs);
   }
 
-  getClubById(id: number) {
+  getClubById(id: number): Observable<Club | undefined> {
     const club = this.allClubs.find(club => club.id === id);
     return of(club);
   }
 
 
-  getClubBookById(clubId: number, bookId: number) {
+  getClubBookById(clubId: number, bookId: number): Observable<Book | undefined> {
     const club = this.allClubs.find(club => club.id === clubId);
     const book = club?.books.find((book: { id: number; }) => book.id === bookId);
     return of(book);

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Home from "./components/Home.vue";
 import { RouterView, RouterLink } from "vue-router";
 </script>
 
@@ -29,7 +28,6 @@ import { RouterView, RouterLink } from "vue-router";
 		>
 		<router-link
 			:to="{ name: 'Profile' }"
-			to="Profile"
 			class="button"
 			active-class="activeButton"
 			aria-current="page"

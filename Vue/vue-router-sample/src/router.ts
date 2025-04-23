@@ -14,7 +14,6 @@ export const routes = [
 	{
 		path: "/clubs/:clubId",
 		component: () => import("@/components/ClubOverview.vue"),
-		props: true,
 		children: [
 			{
 				path: "/clubs/:clubId",
